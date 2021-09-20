@@ -5,6 +5,8 @@ import Dropdown from "./components/Dropdown";
 import SearchList from "./components/SearchList";
 import Translate from "./components/Translate";
 //AIzaSyCHUCmpR7cT_yDFHC98CZJy2LTms-IwDlM
+import Route from "./components/Route";
+import Header from "./components/Header";
 
 const items = [
     {
@@ -36,10 +38,63 @@ const options = [
     },
 ];
 
+// const showAccordion = () => {
+//     if (window.location.pathname === "/") {
+//         return <Accordion items={items} />;
+//     }
+// };
+// const showList = () => {
+//     if (window.location.pathname === "/list") {
+//         return <SearchList />;
+//     }
+// };
+// const showDropdown = () => {
+//     if (window.location.pathname === "/dropdown") {
+//         return (
+//             <Dropdown
+//             // label="color"
+//             // options={options}
+//             // selected={selected}
+//             // onSelectChange={setSelected}
+//             />
+//         );
+//     }
+// };
+// const showTranslation = () => {
+//     if (window.location.pathname === "/translation") {
+//         return <Translate />;
+//     }
+// };
+
+// const showComponent = (route, component) => {
+//     if (window.location.pathname === route) {
+//         return component;
+//     }
+// };
+
 const App = () => {
+    const [selected, setSelected] = useState(options[0]);
+
     return (
         <div>
-            <Translate />
+            <Header />
+            <Route path="/">
+                <Accordion items={items} />
+            </Route>
+            <Route path="/list">
+                <SearchList />
+            </Route>
+            <Route path="/dropdown">
+                <Dropdown
+                    label="color"
+                    options={options}
+                    selected={selected}
+                    onSelectChange={setSelected}
+                />
+            </Route>
+            <Route path="/translate">
+                <Translate />
+            </Route>
         </div>
     );
 };
