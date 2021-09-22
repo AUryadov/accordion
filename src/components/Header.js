@@ -13,7 +13,7 @@ const Header = () => {
                 Dropdown
             </Link>
             <Link className="item" href="/translate">
-                Translate
+                Translate New
             </Link>
         </div>
     );
